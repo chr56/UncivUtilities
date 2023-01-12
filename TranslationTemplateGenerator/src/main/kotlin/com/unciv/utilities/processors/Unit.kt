@@ -11,9 +11,9 @@ fun generateUnitLine(unit: Unit, translation: String? = null): String = with(uni
         //
         if (uniqueTo != null && replaces != null) {
             // just renaming
-            appendLine("## $replaces of `$uniqueTo`:")
+            appendLine("## `$replaces` of `$uniqueTo`:")
         } else {
-            appendLine("##")
+            //appendLine("##")
         }
         //
         // actual translation
@@ -69,19 +69,19 @@ fun processUnits() {
     val airBucket = categoryByUnitType(air)
 
     buildString {
-        commentBlock("Land", CommentGrass.Large) {
+        commentBlock("Land", 56) {
             for (group in landBucket) {
-                commentList(group.key, CommentGrass.Medium) { group.value.map { generateUnitLine(it) } }
+                commentList(group.key, 34) { group.value.map { generateUnitLine(it) } }
             }
         }
-        commentBlock("Water", CommentGrass.Large) {
+        commentBlock("Water", 56) {
             for (group in waterBucket) {
-                commentList(group.key, CommentGrass.Medium) { group.value.map { generateUnitLine(it) } }
+                commentList(group.key, 34) { group.value.map { generateUnitLine(it) } }
             }
         }
-        commentBlock("Air", CommentGrass.Large) {
+        commentBlock("Air", 56) {
             for (group in airBucket) {
-                commentList(group.key, CommentGrass.Medium) { group.value.map { generateUnitLine(it) } }
+                commentList(group.key, 34) { group.value.map { generateUnitLine(it) } }
             }
         }
     }.also { println(it) }
