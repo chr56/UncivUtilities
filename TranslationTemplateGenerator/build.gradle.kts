@@ -13,4 +13,6 @@ kotlin {
 dependencies{
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
     implementation("io.github.xn32:json5k:0.2.1") // json with comments support
+
+    implementation("com.github.ajalt.clikt:clikt:3.5.1") // commandline parse
 }
