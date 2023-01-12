@@ -12,12 +12,18 @@ data class UnitType(
     enum class MovementType {
         Land, Water, Air;
 
-        fun from(string: String): MovementType =
-            when (string) {
-                "Land" -> Land
-                "Water" -> Water
-                "Air" -> Air
-                else -> throw IllegalArgumentException("Unknown MovementType $string")
-            }
+        companion object {
+            fun from(string: String): MovementType =
+                when (string) {
+                    "Land" -> Land
+                    "Water" -> Water
+                    "Air" -> Air
+                    else -> throw IllegalArgumentException("Unknown MovementType $string")
+                }
+        }
     }
+
+    fun isLand(): Boolean = MovementType.from(movementType) == MovementType.Land
+    fun isWater(): Boolean = MovementType.from(movementType) == MovementType.Water
+    fun isAir(): Boolean = MovementType.from(movementType) == MovementType.Air
 }
